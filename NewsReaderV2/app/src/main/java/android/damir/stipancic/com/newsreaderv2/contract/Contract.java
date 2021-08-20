@@ -8,7 +8,7 @@ public interface Contract {
 
     interface Model{
         interface OnFinishedListener{
-            void onFinished();
+            void onFinished(List<Article> articles);
             void onFailure(Throwable t);
         }
 
@@ -17,6 +17,7 @@ public interface Contract {
 
     interface Presenter{
         void requestDataFromServer();
+        void onDestroy();
     }
 
     interface View{
