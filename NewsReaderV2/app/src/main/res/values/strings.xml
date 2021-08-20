@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NewsReaderV2</string>
+    <string name="article_image">article_image</string>
+    <string name="loading_news">Loading news…</string>
+    <string name="single_article_image">single_article_image</string>
+    <string name="read_more">Read more: %1$s</string>
+</resources>
