@@ -20,7 +20,7 @@ public interface Contract {
     interface Presenter{
         void requestDataFromServer();
         void onDestroy();
-        void onBindArticleData(ArticleViewHolder holder, int position, Context context);
+        void onBindArticleData(ArticleViewHolder holder, int position);
         int getArticleCount();
     }
 
@@ -32,12 +32,7 @@ public interface Contract {
 
         interface itemView{
             void setTitle(String title);
-            void setImage(String imageUrl, Context context, Article article);
+            void setImage(String imageUrl, Article article);
         }
-    }
-
-    interface itemView{
-        void bindData();
-
     }
 }

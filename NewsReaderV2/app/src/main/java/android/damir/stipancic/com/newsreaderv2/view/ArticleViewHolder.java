@@ -20,10 +20,12 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder implements Contra
 
     private final TextView mArticleTitle;
     private final ImageView mArticleImage;
+    private final Context mContext;
 
-    public ArticleViewHolder(@NonNull View itemView) {
+    public ArticleViewHolder(@NonNull View itemView, Context context) {
         super(itemView);
 
+        this.mContext = context;
         mArticleTitle = itemView.findViewById(R.id.tvArticleTitle);
         mArticleImage = itemView.findViewById(R.id.ivArticleImage);
     }
@@ -34,10 +36,11 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder implements Contra
     }
 
     @Override
-    public void setImage(String url, Context context, Article article) {
-        Picasso.with(context)
+    public void setImage(String url, Article article) {
+        Picasso.with(mContext)
                 .load(article.getImageUrl())
                 .networkPolicy(NetworkPolicy.OFFLINE)
+                .placeholder(R.drawable.placeholder)
                 .into(mArticleImage, new Callback() {
                     @Override
                     public void onSuccess() {
@@ -47,8 +50,9 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder implements Contra
                     @Override
                     public void onError() {
                         //Try again online if cache failed
-                        Picasso.with(context)
+                        Picasso.with(mContext)
                                 .load(article.getImageUrl())
+                                .placeholder(R.drawable.placeholder)
                                 .into(mArticleImage, new Callback() {
                                     @Override
                                     public void onSuccess() {

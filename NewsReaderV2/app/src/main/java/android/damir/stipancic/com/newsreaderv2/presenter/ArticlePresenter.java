@@ -35,10 +35,10 @@ public class ArticlePresenter implements Contract.Presenter, Contract.Model.OnFi
     }
 
     @Override
-    public void onBindArticleData(ArticleViewHolder holder, int position, Context context) {
+    public void onBindArticleData(ArticleViewHolder holder, int position) {
         Article article = mArticleList.get(position);
         holder.setTitle(article.getTitle());
-        holder.setImage(article.getImageUrl(), context, article);
+        holder.setImage(article.getImageUrl(), article);
     }
 
     @Override

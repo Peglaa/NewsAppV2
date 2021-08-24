@@ -22,12 +22,12 @@ public class ArticleRecyclerAdapter extends RecyclerView.Adapter<ArticleViewHold
     @NonNull
     @Override
     public ArticleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ArticleViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.article_recycler_item, parent, false));
+        return new ArticleViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.article_recycler_item, parent, false), mContext);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ArticleViewHolder holder, int position) {
-        presenter.onBindArticleData(holder, position, mContext);
+        presenter.onBindArticleData(holder, position);
     }
 
     @Override
