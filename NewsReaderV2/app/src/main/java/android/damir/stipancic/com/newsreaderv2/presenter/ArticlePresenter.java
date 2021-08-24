@@ -1,18 +1,24 @@
 package android.damir.stipancic.com.newsreaderv2.presenter;
 
+import android.content.Context;
 import android.damir.stipancic.com.newsreaderv2.contract.Contract;
 import android.damir.stipancic.com.newsreaderv2.model.Article;
+import android.damir.stipancic.com.newsreaderv2.model.ArticleListModel;
+import android.damir.stipancic.com.newsreaderv2.view.ArticleViewHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArticlePresenter implements Contract.Presenter, Contract.Model.OnFinishedListener{
 
     private Contract.View mArticleListView;
     private Contract.Model mArticleListModel;
+    private List<Article> mArticleList;
 
-    public ArticlePresenter(Contract.View view, Contract.Model model) {
+    public ArticlePresenter(Contract.View view) {
         this.mArticleListView = view;
-        this.mArticleListModel = model;
+        this.mArticleListModel = new ArticleListModel();
+        this.mArticleList = new ArrayList<>();
     }
 
     @Override
@@ -29,8 +35,22 @@ public class ArticlePresenter implements Contract.Presenter, Contract.Model.OnFi
     }
 
     @Override
+    public void onBindArticleData(ArticleViewHolder holder, int position, Context context) {
+        Article article = mArticleList.get(position);
+        holder.setTitle(article.getTitle());
+        holder.setImage(article.getImageUrl(), context, article);
+    }
+
+    @Override
+    public int getArticleCount() {
+        return mArticleList.size();
+    }
+
+    @Override
     public void onFinished(List<Article> articles) {
-        mArticleListView.setDataToRecyclerViewFromServer(articles);
+        mArticleList.clear();
+        mArticleList.addAll(articles);
+        mArticleListView.setDataToRecyclerView();
 
         if(mArticleListView != null)
             mArticleListView.hideProgress();

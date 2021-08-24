@@ -1,6 +1,8 @@
 package android.damir.stipancic.com.newsreaderv2.contract;
 
+import android.content.Context;
 import android.damir.stipancic.com.newsreaderv2.model.Article;
+import android.damir.stipancic.com.newsreaderv2.view.ArticleViewHolder;
 
 import java.util.List;
 
@@ -18,12 +20,24 @@ public interface Contract {
     interface Presenter{
         void requestDataFromServer();
         void onDestroy();
+        void onBindArticleData(ArticleViewHolder holder, int position, Context context);
+        int getArticleCount();
     }
 
     interface View{
         void showProgress();
         void hideProgress();
-        void setDataToRecyclerViewFromServer(List<Article> articleList);
+        void setDataToRecyclerView();
         void onResponseFailure(Throwable t);
+
+        interface itemView{
+            void setTitle(String title);
+            void setImage(String imageUrl, Context context, Article article);
+        }
+    }
+
+    interface itemView{
+        void bindData();
+
     }
 }
