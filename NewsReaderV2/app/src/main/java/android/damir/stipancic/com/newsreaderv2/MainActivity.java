@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.damir.stipancic.com.newsreaderv2.contract.Contract;
 import android.damir.stipancic.com.newsreaderv2.presenter.ArticlePresenter;
 import android.damir.stipancic.com.newsreaderv2.view.ArticleRecyclerAdapter;
+import android.damir.stipancic.com.newsreaderv2.view.ErrorDialog;
 import android.damir.stipancic.com.newsreaderv2.view.LoadingDialog;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements Contract.View {
 
     @Override
     public void onResponseFailure(Throwable t) {
-
+        ErrorDialog errorDialog = new ErrorDialog();
+        errorDialog.show(getSupportFragmentManager(), "ERROR_DIALOG");
     }
 }
