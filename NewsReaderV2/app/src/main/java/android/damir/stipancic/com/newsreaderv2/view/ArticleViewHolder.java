@@ -40,7 +40,6 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder implements Contra
         Picasso.with(mContext)
                 .load(article.getImageUrl())
                 .networkPolicy(NetworkPolicy.OFFLINE)
-                .placeholder(R.drawable.placeholder)
                 .into(mArticleImage, new Callback() {
                     @Override
                     public void onSuccess() {
@@ -52,7 +51,6 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder implements Contra
                         //Try again online if cache failed
                         Picasso.with(mContext)
                                 .load(article.getImageUrl())
-                                .placeholder(R.drawable.placeholder)
                                 .into(mArticleImage, new Callback() {
                                     @Override
                                     public void onSuccess() {

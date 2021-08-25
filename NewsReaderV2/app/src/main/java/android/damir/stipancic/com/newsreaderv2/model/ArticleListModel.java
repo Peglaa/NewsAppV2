@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 
 import java.util.List;
 
+import io.realm.Realm;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -46,5 +47,15 @@ public class ArticleListModel implements Contract.Model{
                 onFinishedListener.onFailure(t);
             }
         });
+    }
+
+    @Override
+    public void insertDataToDB(List<Article> articles) {
+        Realm mRealm = Realm.getDefaultInstance();
+        mRealm.beginTransaction();
+        if(!mRealm.isEmpty()) mRealm.deleteAll();
+        for(Article article : articles)
+            mRealm.insert(article);
+        mRealm.commitTransaction();
     }
 }

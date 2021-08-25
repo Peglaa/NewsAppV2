@@ -9,6 +9,8 @@ import android.damir.stipancic.com.newsreaderv2.view.ArticleViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.Realm;
+
 public class ArticlePresenter implements Contract.Presenter, Contract.Model.OnFinishedListener{
 
     private Contract.View mArticleListView;
@@ -48,6 +50,7 @@ public class ArticlePresenter implements Contract.Presenter, Contract.Model.OnFi
 
     @Override
     public void onFinished(List<Article> articles) {
+        mArticleListModel.insertDataToDB(articles);
         mArticleList.clear();
         mArticleList.addAll(articles);
         mArticleListView.setDataToRecyclerView();
@@ -59,6 +62,11 @@ public class ArticlePresenter implements Contract.Presenter, Contract.Model.OnFi
     @Override
     public void onFailure(Throwable t) {
         mArticleListView.onResponseFailure(t);
+
+        Realm mRealm = Realm.getDefaultInstance();
+        mArticleList.clear();
+        if(!mRealm.isEmpty()) mArticleList.addAll(mRealm.where(Article.class).findAll());
+        mArticleListView.setDataToRecyclerView();
 
         if(mArticleListView != null)
             mArticleListView.hideProgress();

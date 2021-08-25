@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements Contract.View {
 
         mArticleRecycler = findViewById(R.id.rvMainArticles);
         mArticleRecycler.setLayoutManager(new LinearLayoutManager(this));
+        mArticleRecycler.setHasFixedSize(true);
     }
 
     private void setupToolbar() {
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements Contract.View {
     public void setDataToRecyclerView() {
         mRecyclerAdapter = new ArticleRecyclerAdapter(presenter, this);
         mArticleRecycler.setAdapter(mRecyclerAdapter);
+
     }
 
     @Override

@@ -3,38 +3,48 @@ package android.damir.stipancic.com.newsreaderv2.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.UUID;
+
+import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Article {
+public class Article extends RealmObject {
+
+    @PrimaryKey
+    private UUID mId = UUID.randomUUID();
 
     @SerializedName("author")
     @Expose
-    private final String mAuthor;
+    private String mAuthor;
 
     @SerializedName("title")
     @Expose
-    private final String mTitle;
+    private String mTitle;
 
     @SerializedName("description")
     @Expose
-    private final String mDescription;
+    private String mDescription;
 
     @SerializedName("publishedAt")
     @Expose
-    private final String mPublishedAt;
+    private String mPublishedAt;
 
     @SerializedName("url")
     @Expose
-    @PrimaryKey
-    private final String mSourceUrl;
+    private String mSourceUrl;
 
     @SerializedName("urlToImage")
     @Expose
-    private final String mImageUrl;
+    private String mImageUrl;
 
-    private final long mAge;
+    private long mAge  = System.currentTimeMillis();
+
+    public Article(){
+
+    }
 
     public Article(String author, String title, String sourceUrl, String imageUrl, String desc, String publishedAt){
+        this.mId = UUID.randomUUID();
         this.mAuthor = author;
         this.mTitle = title;
         this.mSourceUrl = sourceUrl;
