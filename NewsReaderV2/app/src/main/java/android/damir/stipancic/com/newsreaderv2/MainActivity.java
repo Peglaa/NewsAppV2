@@ -9,6 +9,7 @@ import android.damir.stipancic.com.newsreaderv2.contract.Contract;
 import android.damir.stipancic.com.newsreaderv2.model.Article;
 import android.damir.stipancic.com.newsreaderv2.presenter.ArticlePresenter;
 import android.damir.stipancic.com.newsreaderv2.view.ArticleRecyclerAdapter;
+import android.damir.stipancic.com.newsreaderv2.view.LoadingDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -19,12 +20,14 @@ public class MainActivity extends AppCompatActivity implements Contract.View {
     private ArticlePresenter presenter;
     private RecyclerView mArticleRecycler;
     private ArticleRecyclerAdapter mRecyclerAdapter;
+    private LoadingDialog mLoadingScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mLoadingScreen = new LoadingDialog(MainActivity.this);
         presenter  = new ArticlePresenter(this);
         setupToolbar();
         setupRecycler();
@@ -46,12 +49,12 @@ public class MainActivity extends AppCompatActivity implements Contract.View {
 
     @Override
     public void showProgress() {
-
+        mLoadingScreen.startLoadAnimation();
     }
 
     @Override
     public void hideProgress() {
-
+        mLoadingScreen.stopLoadAnimation();
     }
 
     @Override
