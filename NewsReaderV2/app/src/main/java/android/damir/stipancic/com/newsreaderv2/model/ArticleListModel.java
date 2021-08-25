@@ -58,4 +58,12 @@ public class ArticleListModel implements Contract.Model{
             mRealm.insert(article);
         mRealm.commitTransaction();
     }
+
+    @Override
+    public List<Article> getDataFromDB() {
+        Realm mRealm = Realm.getDefaultInstance();
+        if(!mRealm.isEmpty())
+            return mRealm.where(Article.class).findAll();
+        return null;
+    }
 }

@@ -16,6 +16,7 @@ public interface Contract {
 
         void getArticleList(OnFinishedListener onFinishedListener);
         void insertDataToDB(List<Article> articles);
+        List<Article> getDataFromDB();
     }
 
     interface Presenter{
