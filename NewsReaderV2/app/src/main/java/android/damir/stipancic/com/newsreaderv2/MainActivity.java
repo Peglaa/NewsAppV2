@@ -6,14 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.damir.stipancic.com.newsreaderv2.contract.Contract;
-import android.damir.stipancic.com.newsreaderv2.model.Article;
 import android.damir.stipancic.com.newsreaderv2.presenter.ArticlePresenter;
 import android.damir.stipancic.com.newsreaderv2.view.ArticleRecyclerAdapter;
 import android.damir.stipancic.com.newsreaderv2.view.LoadingDialog;
 import android.graphics.Color;
 import android.os.Bundle;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements Contract.View {
 
