@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/stipa/Documents/GitHub/NewsAppV2/NewsReaderV2/app/src/main/res/layout/activity_main.xml" value="0.371875" />
+        <entry key="..\:/Users/stipa/Documents/GitHub/NewsAppV2/NewsReaderV2/app/src/main/res/layout/activity_single_article.xml" value="0.20885416666666667" />
         <entry key="..\:/Users/stipa/Documents/GitHub/NewsAppV2/NewsReaderV2/app/src/main/res/layout/article_recycler_item.xml" value="0.371875" />
         <entry key="..\:/Users/stipa/Documents/GitHub/NewsAppV2/NewsReaderV2/app/src/main/res/layout/article_recycler_row.xml" value="0.4343065693430657" />
         <entry key="..\:/Users/stipa/Documents/GitHub/NewsAppV2/NewsReaderV2/app/src/main/res/layout/custom_loading_screen.xml" value="0.20885416666666667" />
+        <entry key="..\:/Users/stipa/Documents/GitHub/NewsAppV2/NewsReaderV2/app/src/main/res/layout/single_article_recycler_item.xml" value="0.20885416666666667" />
       </map>
     </option>
   </component>

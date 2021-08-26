@@ -16,21 +16,19 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
-public class ArticleViewHolder extends RecyclerView.ViewHolder implements Contract.View.MainActivityView.itemView, View.OnClickListener {
+public class SingleArticleViewHolder extends RecyclerView.ViewHolder implements Contract.View.SingleArticleActivityView.singleItemView {
 
-    private final TextView mArticleTitle;
+    private final TextView mArticleTitle, mArticleDescription;
     private final ImageView mArticleImage;
     private final Context mContext;
-    private final ArticleRecyclerAdapter.OnArticleClick mOnArticleClick;
 
-    public ArticleViewHolder(@NonNull View itemView, Context context, ArticleRecyclerAdapter.OnArticleClick onArticleClick) {
+    public SingleArticleViewHolder(@NonNull View itemView, Context context) {
         super(itemView);
 
         this.mContext = context;
-        this.mOnArticleClick = onArticleClick;
-        itemView.setOnClickListener(this);
-        mArticleTitle = itemView.findViewById(R.id.tvArticleTitle);
-        mArticleImage = itemView.findViewById(R.id.ivArticleImage);
+        mArticleTitle = itemView.findViewById(R.id.tvSingleTitle);
+        mArticleDescription = itemView.findViewById(R.id.tvSingleDescription);
+        mArticleImage = itemView.findViewById(R.id.ivSingleArticle);
     }
 
     @Override
@@ -70,7 +68,7 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder implements Contra
     }
 
     @Override
-    public void onClick(View view) {
-        mOnArticleClick.onClick(view, getAdapterPosition());
+    public void setDescription(String description) {
+        mArticleDescription.setText(description);
     }
 }

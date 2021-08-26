@@ -5,20 +5,23 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.damir.stipancic.com.newsreaderv2.contract.Contract;
-import android.damir.stipancic.com.newsreaderv2.presenter.ArticlePresenter;
+import android.damir.stipancic.com.newsreaderv2.presenter.MainActivityPresenter;
 import android.damir.stipancic.com.newsreaderv2.view.ArticleRecyclerAdapter;
 import android.damir.stipancic.com.newsreaderv2.view.ErrorDialog;
 import android.damir.stipancic.com.newsreaderv2.view.LoadingDialog;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 
-public class MainActivity extends AppCompatActivity implements Contract.View {
+public class MainActivity extends AppCompatActivity implements Contract.View.MainActivityView {
 
-    private ArticlePresenter presenter;
+    private MainActivityPresenter presenter;
     private RecyclerView mArticleRecycler;
     private ArticleRecyclerAdapter mRecyclerAdapter;
     private LoadingDialog mLoadingScreen;
+    private ArticleRecyclerAdapter.OnArticleClick mListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +29,21 @@ public class MainActivity extends AppCompatActivity implements Contract.View {
         setContentView(R.layout.activity_main);
 
         mLoadingScreen = new LoadingDialog(MainActivity.this);
-        presenter  = new ArticlePresenter(this);
+        presenter  = new MainActivityPresenter(this);
         setupToolbar();
         setupRecycler();
         presenter.requestDataFromServer();
+        
+        setOnClickListener();
+    }
+
+    private void setOnClickListener() {
+        mListener = (v, position) -> {
+            Log.d("TAG", "setOnClickListener: ");
+            Intent intent = new Intent(v.getContext(), SingleArticleActivity.class);
+            intent.putExtra("position", position);
+            startActivity(intent);
+        };
     }
 
     private void setupRecycler() {
@@ -57,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements Contract.View {
 
     @Override
     public void setDataToRecyclerView() {
-        mRecyclerAdapter = new ArticleRecyclerAdapter(presenter, this);
+        mRecyclerAdapter = new ArticleRecyclerAdapter(presenter, this, mListener);
         mArticleRecycler.setAdapter(mRecyclerAdapter);
 
     }

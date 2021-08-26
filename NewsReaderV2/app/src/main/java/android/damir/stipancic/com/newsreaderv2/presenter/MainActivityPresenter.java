@@ -8,29 +8,29 @@ import android.damir.stipancic.com.newsreaderv2.view.ArticleViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArticlePresenter implements Contract.Presenter, Contract.Model.OnFinishedListener{
+public class MainActivityPresenter implements Contract.MainActivityPresenter, Contract.Model.OnFinishedListener{
 
-    private Contract.View mArticleListView;
+    private Contract.View.MainActivityView mMainActivityView;
     private final Contract.Model mArticleListModel;
     private final List<Article> mArticleList;
 
-    public ArticlePresenter(Contract.View view) {
-        this.mArticleListView = view;
+    public MainActivityPresenter(Contract.View.MainActivityView mainView) {
+        this.mMainActivityView = mainView;
         this.mArticleListModel = new ArticleListModel();
         this.mArticleList = new ArrayList<>();
     }
 
     @Override
     public void requestDataFromServer() {
-        if(mArticleListView != null)
-            mArticleListView.showProgress();
+        if(mMainActivityView != null)
+            mMainActivityView.showProgress();
 
         mArticleListModel.getArticleList(this);
     }
 
     @Override
     public void onDestroy() {
-        mArticleListView = null;
+        mMainActivityView = null;
     }
 
     @Override
@@ -50,21 +50,21 @@ public class ArticlePresenter implements Contract.Presenter, Contract.Model.OnFi
         mArticleListModel.insertDataToDB(articles);
         mArticleList.clear();
         mArticleList.addAll(articles);
-        mArticleListView.setDataToRecyclerView();
+        mMainActivityView.setDataToRecyclerView();
 
-        if(mArticleListView != null)
-            mArticleListView.hideProgress();
+        if(mMainActivityView != null)
+            mMainActivityView.hideProgress();
     }
 
     @Override
     public void onFailure(Throwable t) {
-        mArticleListView.onResponseFailure(t);
+        mMainActivityView.onResponseFailure(t);
 
         mArticleList.clear();
         mArticleList.addAll(mArticleListModel.getDataFromDB());
-        mArticleListView.setDataToRecyclerView();
+        mMainActivityView.setDataToRecyclerView();
 
-        if(mArticleListView != null)
-            mArticleListView.hideProgress();
+        if(mMainActivityView != null)
+            mMainActivityView.hideProgress();
     }
 }
