@@ -9,9 +9,10 @@ import java.util.List;
 public interface Contract {
 
     interface Model{
-        interface OnFinishedListener {
-            void onFinished(List<Article> articles);
 
+        interface OnFinishedListener {
+
+            void onFinished(List<Article> articles);
             void onFailure(Throwable t);
         }
 
@@ -20,30 +21,35 @@ public interface Contract {
         List<Article> getDataFromDB();
     }
 
-    interface MainActivityPresenter{
-        void requestDataFromServer();
-        int getArticleCount();
-        void onDestroy();
-        void onBindArticleData(ArticleViewHolder holder, int position);
+    interface Presenter {
+        
+        interface MainActivityPresenter {
 
+            void requestDataFromServer();
+            int getArticleCount();
+            void onDestroy();
+            void onBindArticleData(ArticleViewHolder holder, int position);
+        }
 
-    }
+        interface SingleArticleActivityPresenter {
 
-    interface SingleArticleActivityPresenter{
-        void onBindSingleArticleData(SingleArticleViewHolder holder, int position);
-        int getArticleCount();
-        String getArticleTitle(int position);
+            void onBindSingleArticleData(SingleArticleViewHolder holder, int position);
+            int getArticleCount();
+            String getArticleTitle(int position);
+        }
     }
 
     interface View{
 
         interface MainActivityView{
+
             void showProgress();
             void hideProgress();
             void setDataToRecyclerView();
             void onResponseFailure(Throwable t);
 
             interface itemView{
+
                 void setTitle(String title);
                 void setImage(String imageUrl, Article article);
             }
@@ -54,6 +60,7 @@ public interface Contract {
             void setDataToViewPager();
 
             interface singleItemView{
+
                 void setTitle(String title);
                 void setImage(String imageUrl, Article article);
                 void setDescription(String description);

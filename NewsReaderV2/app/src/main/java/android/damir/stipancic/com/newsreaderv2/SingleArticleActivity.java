@@ -6,16 +6,14 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.damir.stipancic.com.newsreaderv2.contract.Contract;
-import android.damir.stipancic.com.newsreaderv2.presenter.MainActivityPresenter;
 import android.damir.stipancic.com.newsreaderv2.presenter.SingleArticleActivityPresenter;
 import android.damir.stipancic.com.newsreaderv2.view.SingleArticleRecyclerAdapter;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 
 public class SingleArticleActivity extends AppCompatActivity implements Contract.View.SingleArticleActivityView{
 
-    private Contract.SingleArticleActivityPresenter mPresenter;
+    private Contract.Presenter.SingleArticleActivityPresenter mPresenter;
     private int mPosition;
 
     @Override
@@ -25,17 +23,15 @@ public class SingleArticleActivity extends AppCompatActivity implements Contract
 
         Intent intent = getIntent();
         mPosition = intent.getIntExtra("position", 0);
-        mPresenter = new SingleArticleActivityPresenter(this);
+        mPresenter = new SingleArticleActivityPresenter();
         setDataToViewPager();
         setupToolbar();
     }
 
     @Override
     public void setDataToViewPager() {
-        Log.d("TAG", "setDataToViewPager: ");
         ViewPager2 singleArticleViewPager2 = findViewById(R.id.singleArticleViewPager);
         singleArticleViewPager2.setAdapter(new SingleArticleRecyclerAdapter(mPresenter, this));
-        Log.d("TAG", "AFTER_ADAPTER: ");
         singleArticleViewPager2.setCurrentItem(mPosition);
         singleArticleViewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override

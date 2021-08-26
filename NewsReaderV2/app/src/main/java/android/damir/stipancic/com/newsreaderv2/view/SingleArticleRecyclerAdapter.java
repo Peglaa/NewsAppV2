@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class SingleArticleRecyclerAdapter extends RecyclerView.Adapter<SingleArticleViewHolder>{
 
-    private final Contract.SingleArticleActivityPresenter mPresenter;
+    private final Contract.Presenter.SingleArticleActivityPresenter mPresenter;
     private final Context mContext;
 
-    public SingleArticleRecyclerAdapter(Contract.SingleArticleActivityPresenter presenter, Context context){
+    public SingleArticleRecyclerAdapter(Contract.Presenter.SingleArticleActivityPresenter presenter, Context context){
         this.mPresenter = presenter;
         this.mContext = context;
     }

@@ -4,20 +4,17 @@ import android.damir.stipancic.com.newsreaderv2.contract.Contract;
 import android.damir.stipancic.com.newsreaderv2.model.Article;
 import android.damir.stipancic.com.newsreaderv2.model.ArticleListModel;
 import android.damir.stipancic.com.newsreaderv2.view.SingleArticleViewHolder;
-import android.telecom.Call;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SingleArticleActivityPresenter implements Contract.SingleArticleActivityPresenter {
+public class SingleArticleActivityPresenter implements Contract.Presenter.SingleArticleActivityPresenter {
 
-    private Contract.View.SingleArticleActivityView mView;
     private final Contract.Model mArticleListModel;
     private final List<Article> mArticleList;
 
-    public SingleArticleActivityPresenter(Contract.View.SingleArticleActivityView singleView) {
-        this.mView = singleView;
+    public SingleArticleActivityPresenter() {
         this.mArticleListModel = new ArticleListModel();
         this.mArticleList = new ArrayList<>();
         mArticleList.addAll(mArticleListModel.getDataFromDB());

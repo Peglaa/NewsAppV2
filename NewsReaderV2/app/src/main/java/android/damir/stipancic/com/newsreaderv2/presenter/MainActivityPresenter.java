@@ -8,7 +8,7 @@ import android.damir.stipancic.com.newsreaderv2.view.ArticleViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivityPresenter implements Contract.MainActivityPresenter, Contract.Model.OnFinishedListener{
+public class MainActivityPresenter implements Contract.Presenter.MainActivityPresenter, Contract.Model.OnFinishedListener{
 
     private Contract.View.MainActivityView mMainActivityView;
     private final Contract.Model mArticleListModel;

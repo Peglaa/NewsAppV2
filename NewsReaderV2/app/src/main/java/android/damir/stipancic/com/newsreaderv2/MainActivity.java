@@ -17,7 +17,7 @@ import android.util.Log;
 
 public class MainActivity extends AppCompatActivity implements Contract.View.MainActivityView {
 
-    private MainActivityPresenter presenter;
+    private MainActivityPresenter mPresenter;
     private RecyclerView mArticleRecycler;
     private ArticleRecyclerAdapter mRecyclerAdapter;
     private LoadingDialog mLoadingScreen;
@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity implements Contract.View.Mai
         setContentView(R.layout.activity_main);
 
         mLoadingScreen = new LoadingDialog(MainActivity.this);
-        presenter  = new MainActivityPresenter(this);
+        mPresenter = new MainActivityPresenter(this);
         setupToolbar();
         setupRecycler();
-        presenter.requestDataFromServer();
+        mPresenter.requestDataFromServer();
         
         setOnClickListener();
     }
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements Contract.View.Mai
 
     @Override
     public void setDataToRecyclerView() {
-        mRecyclerAdapter = new ArticleRecyclerAdapter(presenter, this, mListener);
+        mRecyclerAdapter = new ArticleRecyclerAdapter(mPresenter, this, mListener);
         mArticleRecycler.setAdapter(mRecyclerAdapter);
 
     }
@@ -80,5 +80,11 @@ public class MainActivity extends AppCompatActivity implements Contract.View.Mai
     public void onResponseFailure(Throwable t) {
         ErrorDialog errorDialog = new ErrorDialog();
         errorDialog.show(getSupportFragmentManager(), "ERROR_DIALOG");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPresenter.onDestroy();
     }
 }
