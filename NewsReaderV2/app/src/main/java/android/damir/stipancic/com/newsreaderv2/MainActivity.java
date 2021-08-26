@@ -30,11 +30,10 @@ public class MainActivity extends AppCompatActivity implements Contract.View.Mai
 
         mLoadingScreen = new LoadingDialog(MainActivity.this);
         mPresenter = new MainActivityPresenter(this);
+        setOnClickListener();
         setupToolbar();
         setupRecycler();
         mPresenter.requestDataFromServer();
-        
-        setOnClickListener();
     }
 
     private void setOnClickListener() {

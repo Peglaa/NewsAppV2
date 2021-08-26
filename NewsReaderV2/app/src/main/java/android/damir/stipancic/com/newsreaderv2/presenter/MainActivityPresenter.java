@@ -4,6 +4,7 @@ import android.damir.stipancic.com.newsreaderv2.contract.Contract;
 import android.damir.stipancic.com.newsreaderv2.model.Article;
 import android.damir.stipancic.com.newsreaderv2.model.ArticleListModel;
 import android.damir.stipancic.com.newsreaderv2.view.ArticleViewHolder;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,19 @@ public class MainActivityPresenter implements Contract.Presenter.MainActivityPre
         if(mMainActivityView != null)
             mMainActivityView.showProgress();
 
-        mArticleListModel.getArticleList(this);
+        if(mArticleListModel.isDBEmpty() || mArticleListModel.isDataOlderThan5Min()) {
+            Log.d("TAG", "FROM_SERVER: ");
+            mArticleListModel.getArticleList(this);
+        }
+
+        else {
+            Log.d("TAG", "FROM_DB: ");
+            mArticleList.clear();
+            mArticleList.addAll(mArticleListModel.getDataFromDB());
+            mMainActivityView.setDataToRecyclerView();
+            if(mMainActivityView != null)
+                mMainActivityView.hideProgress();
+        }
     }
 
     @Override
@@ -60,9 +73,11 @@ public class MainActivityPresenter implements Contract.Presenter.MainActivityPre
     public void onFailure(Throwable t) {
         mMainActivityView.onResponseFailure(t);
 
-        mArticleList.clear();
-        mArticleList.addAll(mArticleListModel.getDataFromDB());
-        mMainActivityView.setDataToRecyclerView();
+        if(!mArticleListModel.isDBEmpty()) {
+            mArticleList.clear();
+            mArticleList.addAll(mArticleListModel.getDataFromDB());
+            mMainActivityView.setDataToRecyclerView();
+        }
 
         if(mMainActivityView != null)
             mMainActivityView.hideProgress();

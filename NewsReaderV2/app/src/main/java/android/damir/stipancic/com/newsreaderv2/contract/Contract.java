@@ -19,10 +19,12 @@ public interface Contract {
         void getArticleList(OnFinishedListener onFinishedListener);
         void insertDataToDB(List<Article> articles);
         List<Article> getDataFromDB();
+        boolean isDataOlderThan5Min();
+        boolean isDBEmpty();
     }
 
     interface Presenter {
-        
+
         interface MainActivityPresenter {
 
             void requestDataFromServer();

@@ -17,6 +17,7 @@ import retrofit2.Response;
 public class ArticleListModel implements Contract.Model{
 
     private final String TAG = "ArticleListModel";
+    private Realm mRealm;
 
     @Override
     public void getArticleList(OnFinishedListener onFinishedListener) {
@@ -62,8 +63,22 @@ public class ArticleListModel implements Contract.Model{
     @Override
     public List<Article> getDataFromDB() {
         Realm mRealm = Realm.getDefaultInstance();
-        if(!mRealm.isEmpty())
-            return mRealm.where(Article.class).findAll();
-        return null;
+        return mRealm.where(Article.class).findAll();
+    }
+
+    @Override
+    public boolean isDataOlderThan5Min(){
+        mRealm = Realm.getDefaultInstance();
+        mRealm.beginTransaction();
+        long age = mRealm.where(Article.class).findFirst().getAge();
+        mRealm.commitTransaction();
+        long currentTime = System.currentTimeMillis();
+
+        return (currentTime - age) > 300000;
+    }
+
+    public boolean isDBEmpty(){
+        mRealm = Realm.getDefaultInstance();
+        return mRealm.isEmpty();
     }
 }
