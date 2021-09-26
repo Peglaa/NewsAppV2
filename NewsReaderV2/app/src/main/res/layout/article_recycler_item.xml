@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="81dp"
+    android:layout_height="128dp"
     android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/ivArticleImage"
         android:layout_height="match_parent"
-        android:layout_width="144dp"
+        android:layout_width="128dp"
         android:contentDescription="@string/article_image"
+        android:scaleType="centerCrop"
         />
 
     <TextView
         android:id="@+id/tvArticleTitle"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:textSize="20sp"
-        android:layout_margin="15dp"
+        android:layout_width="240dp"
+        android:layout_height="62dp"
+        android:textSize="21sp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:fadingEdge="horizontal"
+        android:scrollHorizontally="true"
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@color/black"
         />
 
 

@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/stipa/Documents/GitHub/NewsAppV2/NewsReaderV2/app/src/main/res/font-v26/famility_roboto.xml" value="0.39076923076923076" />
+        <entry key="..\:/Users/stipa/Documents/GitHub/NewsAppV2/NewsReaderV2/app/src/main/res/font/famility_roboto.xml" value="0.39076923076923076" />
         <entry key="..\:/Users/stipa/Documents/GitHub/NewsAppV2/NewsReaderV2/app/src/main/res/layout/activity_main.xml" value="0.371875" />
         <entry key="..\:/Users/stipa/Documents/GitHub/NewsAppV2/NewsReaderV2/app/src/main/res/layout/activity_single_article.xml" value="0.20885416666666667" />
         <entry key="..\:/Users/stipa/Documents/GitHub/NewsAppV2/NewsReaderV2/app/src/main/res/layout/article_recycler_item.xml" value="0.371875" />

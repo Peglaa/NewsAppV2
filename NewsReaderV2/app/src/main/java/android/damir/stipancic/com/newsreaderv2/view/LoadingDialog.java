@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.damir.stipancic.com.newsreaderv2.R;
 import android.view.LayoutInflater;
-import android.view.ViewGroup;
 
 public class LoadingDialog {
 
@@ -24,7 +23,6 @@ public class LoadingDialog {
 
         mAlertDialog = builder.create();
         mAlertDialog.show();
-        mAlertDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, 300);
 
     }
 

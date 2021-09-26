@@ -70,8 +70,12 @@ public class MainActivity extends AppCompatActivity implements Contract.View.Mai
 
     @Override
     public void setDataToRecyclerView() {
-        mRecyclerAdapter = new ArticleRecyclerAdapter(mPresenter, this, mListener);
-        mArticleRecycler.setAdapter(mRecyclerAdapter);
+        if(mRecyclerAdapter==null) {
+            mRecyclerAdapter = new ArticleRecyclerAdapter(mPresenter, this, mListener);
+            mArticleRecycler.setAdapter(mRecyclerAdapter);
+        }
+        else
+            mRecyclerAdapter.notifyDataSetChanged();
 
     }
 
