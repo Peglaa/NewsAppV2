@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso;
 
 public class SingleArticleViewHolder extends RecyclerView.ViewHolder implements Contract.View.SingleArticleActivityView.singleItemView {
 
-    private final TextView mArticleTitle, mArticleDescription;
+    private final TextView mArticleTitle, mArticleDescription, mArticleLink;
     private final ImageView mArticleImage;
     private final Context mContext;
 
@@ -28,6 +28,7 @@ public class SingleArticleViewHolder extends RecyclerView.ViewHolder implements 
         this.mContext = context;
         mArticleTitle = itemView.findViewById(R.id.tvSingleTitle);
         mArticleDescription = itemView.findViewById(R.id.tvSingleDescription);
+        mArticleLink = itemView.findViewById(R.id.tvSingleLink);
         mArticleImage = itemView.findViewById(R.id.ivSingleArticle);
     }
 
@@ -70,5 +71,10 @@ public class SingleArticleViewHolder extends RecyclerView.ViewHolder implements 
     @Override
     public void setDescription(String description) {
         mArticleDescription.setText(description);
+    }
+
+    @Override
+    public void setLink(String link) {
+        mArticleLink.setText(link);
     }
 }

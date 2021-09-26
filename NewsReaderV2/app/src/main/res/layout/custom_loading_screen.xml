@@ -19,8 +19,7 @@
         android:layout_below="@+id/pbLoadCircle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
-        android:textSize="18sp"
-        android:textColor="@color/black"/>
+        android:textSize="18sp" />
 
 
 </RelativeLayout>

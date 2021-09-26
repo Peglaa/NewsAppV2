@@ -25,7 +25,8 @@ public class SingleArticleActivityPresenter implements Contract.Presenter.Single
         Log.d("TAG", "onBindSingleArticleData: " + mArticleList);
         Article article = mArticleList.get(position);
         holder.setTitle(article.getTitle());
-        holder.setDescription(article.getDescription() + "\n Read more: " + article.getSourceUrl());
+        holder.setDescription(article.getDescription());
+        holder.setLink("Read more: " + article.getSourceUrl());
         holder.setImage(article.getImageUrl(), article);
     }
 

@@ -66,6 +66,7 @@ public interface Contract {
                 void setTitle(String title);
                 void setImage(String imageUrl, Article article);
                 void setDescription(String description);
+                void setLink(String link);
             }
         }
 
