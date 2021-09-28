@@ -7,4 +7,4 @@ Improvements:
   3. Reworked the recycler views, data is now stored in the presenter and the adapter calls on the presenter for data
   4. Implemented proper gradient for text views in the article list
   5. Moved all data handling to the model repository
-  6. Optimized the recycler views so the adapters only update instead of recreate themselves
+  6. Optimized the recycler views so the adapters only update instead of recreating themselves
