@@ -70,12 +70,8 @@ public class MainActivity extends AppCompatActivity implements Contract.View.Mai
 
     @Override
     public void setDataToRecyclerView() {
-        if(mRecyclerAdapter==null) {
-            mRecyclerAdapter = new ArticleRecyclerAdapter(mPresenter, this, mListener);
-            mArticleRecycler.setAdapter(mRecyclerAdapter);
-        }
-        else
-            mRecyclerAdapter.notifyDataSetChanged();
+        mRecyclerAdapter = new ArticleRecyclerAdapter(mPresenter, this, mListener);
+        mArticleRecycler.setAdapter(mRecyclerAdapter);
 
     }
 
@@ -83,6 +79,11 @@ public class MainActivity extends AppCompatActivity implements Contract.View.Mai
     public void onResponseFailure(Throwable t) {
         ErrorDialog errorDialog = new ErrorDialog();
         errorDialog.show(getSupportFragmentManager(), "ERROR_DIALOG");
+    }
+
+    @Override
+    public void updateRecyclerData() {
+        mRecyclerAdapter.notifyDataSetChanged();
     }
 
     @Override

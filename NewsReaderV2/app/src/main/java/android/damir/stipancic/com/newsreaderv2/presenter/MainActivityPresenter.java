@@ -61,9 +61,15 @@ public class MainActivityPresenter implements Contract.Presenter.MainActivityPre
     @Override
     public void onFinished(List<Article> articles) {
         mArticleListModel.insertDataToDB(articles);
-        mArticleList.clear();
-        mArticleList.addAll(articles);
-        mMainActivityView.setDataToRecyclerView();
+        if(mArticleList.isEmpty()){
+            mArticleList.addAll(articles);
+            mMainActivityView.setDataToRecyclerView();
+        }
+        else {
+            mArticleList.clear();
+            mArticleList.addAll(articles);
+            mMainActivityView.updateRecyclerData();
+        }
 
         if(mMainActivityView != null)
             mMainActivityView.hideProgress();

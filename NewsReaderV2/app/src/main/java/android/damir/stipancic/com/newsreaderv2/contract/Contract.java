@@ -49,6 +49,7 @@ public interface Contract {
             void hideProgress();
             void setDataToRecyclerView();
             void onResponseFailure(Throwable t);
+            void updateRecyclerData();
 
             interface itemView{
 
