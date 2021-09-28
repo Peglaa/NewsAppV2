@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="128dp"
     android:orientation="horizontal">
@@ -21,9 +21,18 @@
         android:layout_marginTop="22dp"
         android:fadingEdge="horizontal"
         android:scrollHorizontally="true"
-        android:fontFamily="@font/roboto_regular"
         android:textColor="@color/black"
+        android:layout_toEndOf="@id/ivArticleImage"
         />
 
+    <View
+        android:id="@+id/gradient"
+        android:layout_width="240dp"
+        android:layout_height="62dp"
+        android:background="@drawable/gradient"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:layout_toEndOf="@id/ivArticleImage" />
 
-</LinearLayout>
+
+</RelativeLayout>
