@@ -12,7 +12,7 @@ import java.util.List;
 public class MainActivityPresenter implements Contract.Presenter.MainActivityPresenter, Contract.Model.OnFinishedListener{
 
     private Contract.View.MainActivityView mMainActivityView;
-    private final Contract.Model mArticleListModel;
+    private final ArticleListModel mArticleListModel;
     private final List<Article> mArticleList;
 
     public MainActivityPresenter(Contract.View.MainActivityView mainView) {

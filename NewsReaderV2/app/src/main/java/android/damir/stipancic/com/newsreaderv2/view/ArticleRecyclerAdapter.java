@@ -14,7 +14,7 @@ public class ArticleRecyclerAdapter extends RecyclerView.Adapter<ArticleViewHold
 
     private final MainActivityPresenter mPresenter;
     private final Context mContext;
-    private OnArticleClick mListener;
+    private final OnArticleClick mListener;
 
     public ArticleRecyclerAdapter(MainActivityPresenter presenter, Context context, OnArticleClick listener) {
         this.mPresenter = presenter;
