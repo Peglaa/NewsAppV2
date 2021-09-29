@@ -3,8 +3,6 @@ package android.damir.stipancic.com.newsreaderv2.view;
 import android.content.Context;
 import android.damir.stipancic.com.newsreaderv2.R;
 import android.damir.stipancic.com.newsreaderv2.contract.Contract;
-import android.damir.stipancic.com.newsreaderv2.data.model.Article;
-import android.damir.stipancic.com.newsreaderv2.data.remote.ArticleDTO;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -40,9 +38,9 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder implements Contra
     }
 
     @Override
-    public void setImage(String url, Article article) {
+    public void setImage(String url) {
         Picasso.with(mContext)
-                .load(article.getImageUrl())
+                .load(url)
                 .networkPolicy(NetworkPolicy.OFFLINE)
                 .into(mArticleImage, new Callback() {
                     @Override
@@ -54,7 +52,7 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder implements Contra
                     public void onError() {
                         //Try again online if cache failed
                         Picasso.with(mContext)
-                                .load(article.getImageUrl())
+                                .load(url)
                                 .into(mArticleImage, new Callback() {
                                     @Override
                                     public void onSuccess() {

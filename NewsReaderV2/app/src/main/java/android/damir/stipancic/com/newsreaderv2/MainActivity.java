@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements Contract.View.Mai
 
     @Override
     public void onResponseFailure(Throwable t) {
+        Log.d("MainActivityFail", "onResponseFailure: " + t.getMessage());
         ErrorDialog errorDialog = new ErrorDialog();
         errorDialog.show(getSupportFragmentManager(), "ERROR_DIALOG");
     }

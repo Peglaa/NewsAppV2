@@ -1,7 +1,6 @@
 package android.damir.stipancic.com.newsreaderv2.contract;
 
 import android.damir.stipancic.com.newsreaderv2.data.model.Article;
-import android.damir.stipancic.com.newsreaderv2.data.remote.ArticleDTO;
 import android.damir.stipancic.com.newsreaderv2.view.ArticleViewHolder;
 import android.damir.stipancic.com.newsreaderv2.view.SingleArticleViewHolder;
 
@@ -55,7 +54,7 @@ public interface Contract {
             interface itemView{
 
                 void setTitle(String title);
-                void setImage(String imageUrl, Article article);
+                void setImage(String imageUrl);
             }
         }
 
@@ -66,7 +65,7 @@ public interface Contract {
             interface singleItemView{
 
                 void setTitle(String title);
-                void setImage(String imageUrl, Article article);
+                void setImage(String imageUrl);
                 void setDescription(String description);
                 void setLink(String link);
             }

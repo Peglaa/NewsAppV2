@@ -22,7 +22,7 @@ public class ArticleListModel implements Contract.Model{
 
     private final String TAG = "ArticleListModel";
     private Realm mRealm;
-    RealmConfiguration config = new RealmConfiguration
+    final RealmConfiguration config = new RealmConfiguration
             .Builder()
             .deleteRealmIfMigrationNeeded()
             .build();

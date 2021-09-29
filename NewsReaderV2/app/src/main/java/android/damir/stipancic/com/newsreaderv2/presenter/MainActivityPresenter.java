@@ -2,7 +2,6 @@ package android.damir.stipancic.com.newsreaderv2.presenter;
 
 import android.damir.stipancic.com.newsreaderv2.contract.Contract;
 import android.damir.stipancic.com.newsreaderv2.data.model.Article;
-import android.damir.stipancic.com.newsreaderv2.data.remote.ArticleDTO;
 import android.damir.stipancic.com.newsreaderv2.data.model.ArticleListModel;
 import android.damir.stipancic.com.newsreaderv2.view.ArticleViewHolder;
 import android.util.Log;
@@ -51,7 +50,7 @@ public class MainActivityPresenter implements Contract.Presenter.MainActivityPre
     public void onBindArticleData(ArticleViewHolder holder, int position) {
         Article article = mArticleList.get(position);
         holder.setTitle(article.getTitle());
-        holder.setImage(article.getImageUrl(), article);
+        holder.setImage(article.getImageUrl());
     }
 
     @Override
