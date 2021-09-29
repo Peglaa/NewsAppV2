@@ -8,3 +8,4 @@ Improvements:
   4. Implemented proper gradient for text views in the article list
   5. Moved all data handling to the model repository
   6. Optimized the recycler views so the adapters only update instead of recreating themselves
+  7. Completely reworked backend and model layer. DTO classes for API calls and smaller classes that represent only the data thats used in the app
