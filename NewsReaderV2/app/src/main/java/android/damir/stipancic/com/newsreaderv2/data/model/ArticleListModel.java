@@ -3,8 +3,8 @@ package android.damir.stipancic.com.newsreaderv2.data.model;
 import android.damir.stipancic.com.newsreaderv2.contract.Contract;
 import android.damir.stipancic.com.newsreaderv2.data.remote.ArticleDTO;
 import android.damir.stipancic.com.newsreaderv2.data.remote.ArticleListDTO;
-import android.damir.stipancic.com.newsreaderv2.network.ArticleApiClient;
-import android.damir.stipancic.com.newsreaderv2.network.ArticleApiInterface;
+import android.damir.stipancic.com.newsreaderv2.data.remote.ArticleApiClient;
+import android.damir.stipancic.com.newsreaderv2.data.remote.ArticleApiInterface;
 import android.util.Log;
 
 import androidx.annotation.NonNull;

@@ -1,4 +1,4 @@
-package android.damir.stipancic.com.newsreaderv2.network;
+package android.damir.stipancic.com.newsreaderv2.data.remote;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

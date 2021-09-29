@@ -1,4 +1,4 @@
-package android.damir.stipancic.com.newsreaderv2.network;
+package android.damir.stipancic.com.newsreaderv2.data.remote;
 
 import android.damir.stipancic.com.newsreaderv2.data.remote.ArticleListDTO;
 
