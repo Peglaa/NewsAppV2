@@ -1,6 +1,7 @@
 package android.damir.stipancic.com.newsreaderv2.contract;
 
-import android.damir.stipancic.com.newsreaderv2.model.Article;
+import android.damir.stipancic.com.newsreaderv2.data.model.Article;
+import android.damir.stipancic.com.newsreaderv2.data.remote.ArticleDTO;
 import android.damir.stipancic.com.newsreaderv2.view.ArticleViewHolder;
 import android.damir.stipancic.com.newsreaderv2.view.SingleArticleViewHolder;
 

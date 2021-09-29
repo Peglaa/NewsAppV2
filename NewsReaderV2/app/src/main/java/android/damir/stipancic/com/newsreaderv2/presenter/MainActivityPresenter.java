@@ -1,8 +1,9 @@
 package android.damir.stipancic.com.newsreaderv2.presenter;
 
 import android.damir.stipancic.com.newsreaderv2.contract.Contract;
-import android.damir.stipancic.com.newsreaderv2.model.Article;
-import android.damir.stipancic.com.newsreaderv2.model.ArticleListModel;
+import android.damir.stipancic.com.newsreaderv2.data.model.Article;
+import android.damir.stipancic.com.newsreaderv2.data.remote.ArticleDTO;
+import android.damir.stipancic.com.newsreaderv2.data.model.ArticleListModel;
 import android.damir.stipancic.com.newsreaderv2.view.ArticleViewHolder;
 import android.util.Log;
 
