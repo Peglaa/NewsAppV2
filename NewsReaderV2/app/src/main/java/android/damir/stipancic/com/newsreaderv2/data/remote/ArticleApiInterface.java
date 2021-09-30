@@ -1,7 +1,5 @@
 package android.damir.stipancic.com.newsreaderv2.data.remote;
 
-import android.damir.stipancic.com.newsreaderv2.data.remote.ArticleListDTO;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
