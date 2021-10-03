@@ -5,6 +5,8 @@ import java.util.UUID;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
+//Actual model class used in the app, contains only specific information that's actually needed
+
 public class Article extends RealmObject {
 
     @PrimaryKey

@@ -13,7 +13,7 @@ public class MainActivityPresenter implements Contract.Presenter.MainActivityPre
 
     private Contract.View.MainActivityView mMainActivityView;
     private final ArticleListModel mArticleListModel;
-    private final List<Article> mArticleList;
+    private final List<Article> mArticleList; //List used by RecyclerView
 
     public MainActivityPresenter(Contract.View.MainActivityView mainView) {
         this.mMainActivityView = mainView;
@@ -48,6 +48,7 @@ public class MainActivityPresenter implements Contract.Presenter.MainActivityPre
 
     @Override
     public void onBindArticleData(ArticleViewHolder holder, int position) {
+        //RecyclerView item data binding
         Article article = mArticleList.get(position);
         holder.setTitle(article.getTitle());
         holder.setImage(article.getImageUrl());

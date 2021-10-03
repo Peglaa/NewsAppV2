@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+//Data Transfer Object class that only holds raw api data
+
 public class ArticleListDTO {
 
     @SerializedName("status")

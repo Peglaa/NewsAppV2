@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements Contract.View.Mai
         mListener = (v, position) -> {
             Log.d("TAG", "setOnClickListener: ");
             Intent intent = new Intent(v.getContext(), SingleArticleActivity.class);
-            intent.putExtra("position", position);
+            intent.putExtra("position", position); //Should I be doing this from here?
             startActivity(intent);
         };
     }

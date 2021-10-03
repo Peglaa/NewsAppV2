@@ -38,6 +38,7 @@ public class SingleArticleViewHolder extends RecyclerView.ViewHolder implements 
 
     @Override
     public void setImage(String url) {
+        //Should I be doing this from here?
         Picasso.with(mContext)
                 .load(url)
                 .networkPolicy(NetworkPolicy.OFFLINE)

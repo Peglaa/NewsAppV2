@@ -12,7 +12,7 @@ import java.util.List;
 public class SingleArticleActivityPresenter implements Contract.Presenter.SingleArticleActivityPresenter {
 
     private final ArticleListModel mArticleListModel;
-    private final List<Article> mArticleList;
+    private final List<Article> mArticleList; //List used by RecyclerView
 
     public SingleArticleActivityPresenter() {
         this.mArticleListModel = new ArticleListModel();
@@ -22,6 +22,7 @@ public class SingleArticleActivityPresenter implements Contract.Presenter.Single
 
     @Override
     public void onBindSingleArticleData(SingleArticleViewHolder holder, int position) {
+        //RecyclerView item data binding
         Log.d("TAG", "onBindSingleArticleData: " + mArticleList);
         Article article = mArticleList.get(position);
         holder.setTitle(article.getTitle());

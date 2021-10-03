@@ -39,6 +39,7 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder implements Contra
 
     @Override
     public void setImage(String url) {
+        //Should I be doing this from here?
         Picasso.with(mContext)
                 .load(url)
                 .networkPolicy(NetworkPolicy.OFFLINE)

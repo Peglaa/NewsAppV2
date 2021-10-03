@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ArticleRecyclerAdapter extends RecyclerView.Adapter<ArticleViewHolder> {
 
-    private final MainActivityPresenter mPresenter;
+    private final MainActivityPresenter mPresenter; //Presenter used for fetching data
     private final Context mContext;
     private final OnArticleClick mListener;
 
