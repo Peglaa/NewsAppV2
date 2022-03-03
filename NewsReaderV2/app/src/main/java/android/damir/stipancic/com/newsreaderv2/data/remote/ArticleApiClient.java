@@ -9,7 +9,7 @@ public class ArticleApiClient {
 
     public static Retrofit sRetrofit = null;
 
-    public static final String API_KEY = "6946d0c07a1c4555a4186bfcade76398";
+    public static final String API_KEY = "390b39b88a9c4ea5a7e410de97866b61";
     public static final String SOURCE = "bbc-news";
     public static final String SORT_BY = "top";
 
